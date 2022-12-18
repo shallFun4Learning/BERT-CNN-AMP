@@ -27,10 +27,10 @@ transformers	4.21.3
 In order to test the effectiveness of this method, we compared it with the method of Zhang et al. under the same conditions. In this experiment, the data set and pre training BERT that are completely consistent with them are used.\
 Pretaining datasets: click ->[Github Link](https://github.com/BioSequenceAnalysis/Bert-Protein)
 \
-Pretrained model: click ->[Onedrive Link](https://4wgz12-my.sharepoint.com/:u:/g/personal/admin_4wgz12_onmicrosoft_com/EYnBCEVyN4FKjsSgAUgIDPMBQ6grhDA7_COYEOmu_FB5og?e=d9eaCQ)
+Pretrained model: click ->[Onedrive Link](https://4wgz12-my.sharepoint.com/:u:/g/personal/admin_4wgz12_onmicrosoft_com/EYnBCEVyN4FKjsSgAUgIDPMBQ6grhDA7_COYEOmu_FB5og?e=d9eaCQ) 
 \
 Fine-tunning datasets (PyTorch available): click ->[Onedrive Link](https://4wgz12-my.sharepoint.com/:u:/g/personal/admin_4wgz12_onmicrosoft_com/ES_Sj5aTpNlGvzETY700tIoBJgDrNk7AOBo-qadIfOyV3w?e=vkC0tY
-)
+) and [DRAMP](https://4wgz12-my.sharepoint.com/:f:/g/personal/admin_4wgz12_onmicrosoft_com/EvbcAEvuQoNEsDCmeapnRv0Bdv-oTe07zwp-hllC6YSeMA?e=qXZy9Y)  
 
 
 ## Usage
