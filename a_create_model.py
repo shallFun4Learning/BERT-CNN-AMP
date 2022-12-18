@@ -129,6 +129,21 @@ class FCBert(nn.Module):
         loss = None
         if self.NUMLABELS == 2:
             lossfct = nn.CrossEntropyLoss()
+            
+            '''
+            #There is an application for Focal Loss. 
+             lossfct = torch.hub.load(
+                'adeelh/pytorch-multi-class-focal-loss',
+                model='FocalLoss',
+                # alpha=torch.tensor([0.75, 0.25]),
+                alpha=torch.tensor([0.52, 0.48]),
+                gamma=2,
+                reduction='mean',
+                force_reload=False,
+                verbose=False
+            )
+            lossfct.cuda()
+            '''
             loss = lossfct(logits.view(-1, self.NUMLABELS), labels.view(-1))
         elif self.NUMLABELS == 1:
             labels = labels.float()
