@@ -22,7 +22,7 @@ torchvision	0.8.2
 tqdm	4.64.0
 transformers	4.21.3
 
-## Model&dataset
+## Model&Dataset
 
 In order to test the effectiveness of this method, we compared it with the method of Zhang et al. under the same conditions. In this experiment, the data set and pre training BERT that are completely consistent with them are used.\
 Pretaining datasets: click ->[Github Link](https://github.com/BioSequenceAnalysis/Bert-Protein)
@@ -47,3 +47,53 @@ python a_run_classifier.py --train True --eval True --k INT --dataname YOUR_DATA
 
 (k means *k*mer_model)
 
+# 补充材料
+
+## 数据集来源
+
+<table border="0" cellpadding="0" cellspacing="0" width="939" style="border-collapse: 
+ collapse;table-layout:fixed;width:704pt">
+ <colgroup><col width="189" style="mso-width-source:userset;width:141.75pt">
+ <col width="375" span="2" style="mso-width-source:userset;width:281.25pt">
+ </colgroup><tbody><tr height="30" style="mso-height-source:userset;height:22.5pt" id="r0">
+<td height="28" class="x69" width="189" style="height:21pt;width:141.75pt;">数据集</td>
+<td class="x69" width="375" style="width:281.25pt;">正样本来源</td>
+<td class="x69" width="375" style="width:281.25pt;">负样本来源</td>
+ </tr>
+ <tr height="162" style="mso-height-source:userset;height:121.5pt" id="r1">
+<td height="160" class="x70" style="height:120pt;">From AMPScan Vr.2</td>
+<td class="x71">APD vr. 3数据库中按照以下标准筛选的具有抗菌活性的1778条抗菌肽序列。<br>1. 革兰氏阳性和/或革兰氏阴性细菌<br>2. CD-HIT 检测后过滤掉长度小于 10 个氨基酸或共享≥ 90% 序列同一性的样本</td>
+<td class="x71">UniProt 数据库中按照下面两个条件标准筛选出1778条长度分布与抗菌肽序列接近的非抗菌肽序列。<br>1. 检索条件：更换"subcellular location" 为 "cytoplasm"<span style="mso-spacerun:yes;">&nbsp; </span>r删除与以下关键字匹配的条目 "antimicrobial", "antibiotic", "antiviral", "antifungal", "effector" or "excreted"<br>2. 筛选条件：去除序列长度小于 10 或样本序列同一性大于 40% 的样本</td>
+ </tr>
+ <tr height="118" style="mso-height-source:userset;height:88.5pt" id="r2">
+<td height="116" class="x70" style="height:87pt;">From Bi-LSTM</td>
+<td class="x71">抗菌活性肽结构数据库(DBAASP) 中按照下面条件筛选的2609条抗菌肽序列：<br>1. 至少对一种细菌具有抗菌活性<br>2. 长度超过 3 个且少于 55 个氨基酸<br>3. 不含任何非蛋白质或 D型氨基酸</td>
+<td class="x71">UniProtKB数据库中根据亚细胞定位按照下面条件筛选的3170条非抗菌肽序列：<br>1. 已知功能<br>2. 未提及抗菌性<br>3. 无分泌肽序列</td>
+ </tr>
+ <tr height="162" style="mso-height-source:userset;height:121.5pt" id="r3">
+<td height="160" class="x70" style="height:120pt;">From iAMP-2L</td>
+<td class="x71">APD 数据库中按以下标准筛选不同功能类型的879个抗菌肽序列：<br>1. 包含“Antibacterial”, “Anticancer/tumor”, “Antifungal”, “Anti-HIV” and “Antiviral” 不同功能类型层次的。<br>2. 序列长度为5-100个氨基酸<br>3. 使用CD-HIT去除了40% 相似度的氨基酸冗余序列</td>
+<td class="x71">UniProt数据库中根据以下条件过滤2405条非抗菌肽序列：<br>1. 带有“antimicrobial”、“antibiotic”、“fungicide”、“defensin”等特定注释的样本<br>2. 40%序列相似度</td>
+ </tr>
+ <tr height="206" style="mso-height-source:userset;height:154.5pt" id="r4">
+<td height="204" class="x70" style="height:153pt;">From MAMPs-Pred</td>
+<td class="x71">APD 数据库中按以下标准筛选抗菌肽序列：<br>1. 包含 匹配“Wound healing”, “Spermicidal”, “Insecticidal”, “Chemotactic”, “Antifungal”, “Anti-protist”, “Antioxidant”, “Antibacterial”, “Antibiotic”, “Antimalarial”, “Antiparasital”, “Antiviral”, “Anticancer/tumor”, “Anti-HIV”, “Proteinase inhibitor”<span style="mso-spacerun:yes;">&nbsp; </span>“Surface immobilized” 检索词的<br>2. 序列长度为5-100个氨基酸<br>3. 使用CD-HIT对大于180的样本进行去冗余处理</td>
+<td class="x71">UniProt数据库中根据以下条件筛选10503个非抗菌肽序列：<br>1. 不含非天然氨基酸<br>2. 不在阳性样本中<br>3. 序列长度为5-100个氨基酸<br>除此之外， Pfam蛋白质家族数据库中获得了 109 个相同长度的非抗菌肽序列 </td>
+ </tr>
+ <tr height="118" style="mso-height-source:userset;height:88.5pt" id="r5">
+<td height="116" class="x70" style="height:87pt;">From DRAMP</td>
+<td class="x71">从DRAMP数据库中下载了“Antimicrobial_amps”数据：<br>1. 删除了长度超过上述四个数据集最大最小范围的肽段；<br>2. 删除了使用未知氨基酸的肽段<br>3. 删除了出现在负样本集中的肽段</td>
+<td class="x71">未保证实验公平，负样本收集自上述四个数据集的负样本：<br>1. 删除了重复出现的样本<br>2. 删除了出现在正样本集中的样本</td>
+ </tr>
+<!--[if supportMisalignedColumns]-->
+ <tr height="0" style="display:none">
+  <td width="189" style="width:141.75pt"></td>
+  <td width="375" style="width:281.25pt"></td>
+  <td width="375" style="width:281.25pt"></td>
+ </tr>
+ <!--[endif]-->
+</tbody></table>
+
+## ROC图
+（由于国内网络原因，可能出现无法显示的情况，下载后可正常查看）
+![image](https://github.com/shallFun4Learning/BERT-CNN-AMP/blob/main/roc%E5%9B%BE_04.png)
