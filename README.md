@@ -83,7 +83,7 @@ python a_run_classifier.py --train True --eval True --k INT --dataname YOUR_DATA
  <tr height="118" style="mso-height-source:userset;height:88.5pt" id="r5">
 <td height="116" class="x70" style="height:87pt;">From DRAMP</td>
 <td class="x71">从DRAMP数据库中下载了“Antimicrobial_amps”数据：<br>1. 删除了长度超过上述四个数据集最大最小范围的肽段；<br>2. 删除了使用未知氨基酸的肽段<br>3. 删除了出现在负样本集中的肽段</td>
-<td class="x71">未保证实验公平，负样本收集自上述四个数据集的负样本：<br>1. 删除了重复出现的样本<br>2. 删除了出现在正样本集中的样本</td>
+<td class="x71">为保证实验公平，负样本收集自上述四个数据集的负样本：<br>1. 删除了重复出现的样本<br>2. 删除了出现在正样本集中的样本</td>
  </tr>
 <!--[if supportMisalignedColumns]-->
  <tr height="0" style="display:none">
@@ -138,6 +138,6 @@ python a_run_classifier.py --train True --eval True --k INT --dataname YOUR_DATA
  <!--[endif]-->
 </tbody></table>
 
-## ROC图
+## ROC
 （由于国内网络原因，可能出现无法显示的情况，下载后可正常查看）
 ![image](https://github.com/shallFun4Learning/BERT-CNN-AMP/blob/main/roc%E5%9B%BE_04.png)
