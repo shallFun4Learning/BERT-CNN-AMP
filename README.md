@@ -94,6 +94,50 @@ python a_run_classifier.py --train True --eval True --k INT --dataname YOUR_DATA
  <!--[endif]-->
 </tbody></table>
 
+## Dataset Source
+<table border="0" cellpadding="0" cellspacing="0" width="939" style="border-collapse: 
+ collapse;table-layout:fixed;width:704pt">
+ <colgroup><col width="189" style="mso-width-source:userset;width:141.75pt">
+ <col width="375" span="2" style="mso-width-source:userset;width:281.25pt">
+ </colgroup><tbody><tr height="30" style="mso-height-source:userset;height:22.5pt" id="r0">
+<td height="28" class="x69" width="189" style="height:21pt;width:141.75pt;">Dataset</td>
+<td class="x69" width="375" style="width:281.25pt;">Source of positive samples</td>
+<td class="x69" width="375" style="width:281.25pt;">Source of negative samples</td>
+ </tr>
+ <tr height="246" style="mso-height-source:userset;height:185pt" id="r1">
+<td height="244" class="x70" style="height:183.5pt;">From AMPScan Vr.2</td>
+<td class="x71">The 1778 AMP sequences screened from APD vr.3 database according to the following criteria.<br>1.Samples with antibacterial activity against Gram-positive and/or Gram-negative bacteria <br>2.Samples shorter than 10 amino acids in length or sharing ≥ 90% sequence identity after CD-HIT detection</td>
+<td class="x71">From UniProt, 1778 non-AMP sequences with length distribution close to the AMP sequences were screened according to the following two conditional criteria.<br>1.Set "subcellular location" as cytoplasm and removed any entries that matched the following keywords: "antimicrobial", "antibiotic", "antiviral", "antifungal", "effector" or "excreted"<br>2.Removed the samples with sequence length less than 10 or samples sequence identity greater than 40%<br></td>
+ </tr>
+ <tr height="177" style="mso-height-source:userset;height:133pt" id="r2">
+<td height="175" class="x70" style="height:131.5pt;">From Bi-LSTM</td>
+<td class="x71">The 2609 AMP sequences screened from the Database of Antimicrobial Activity and Structure of Peptides (DBAASP) according to the following conditions.<br>1.Selected polypeptides with antibacterial activity against at least one bacterial species<br>2.Longer than 3 and less than 55 amino acids <br>3.Did not contain any non-proteinogenic or D-amino acids as positive samples</td>
+<td class="x71">The 3170 non-AMP sequences were gathered from the UniProtKB according to the subcellular location parameter with the following criteria.<br>1.The same length<br>2.With known function<br>3.no mention of being antibacterial<br>3.not secreted peptide sequences </td>
+ </tr>
+ <tr height="162" style="mso-height-source:userset;height:121.5pt" id="r3">
+<td height="160" class="x70" style="height:120pt;">From iAMP-2L</td>
+<td class="x71">The 879 AMP sequences of different functional types<span style="mso-spacerun:yes;">&nbsp; </span>screened from APD database according to the following criteria.<br>1.Samples with sequence lengths ranging from 5 to 100 amino acids<br>2.Used CD-HIT to remove redundant sequences with 40% similarity</td>
+<td class="x71">The 2405 non-AMP sequences came from UniProt. By filtering the samples with specific annotations such as "antimicrobial", "antibiotic", "fungicide", "defensin" and the samples with 40% sequence similarity,</td>
+ </tr>
+ <tr height="285" style="mso-height-source:userset;height:214pt" id="r4">
+<td height="283" class="x70" style="height:212.5pt;">From MAMPs-Pred</td>
+<td class="x71">The AMP sequences screened from APD database according to the following criteria. <br>1.Obtained “Wound healing”, “Spermicidal”, “Insecticidal”, “Chemotactic”, “Antifungal”, “Anti-protist”, “Antioxidant”, “Antibacterial”, “Antibiotic”, “Antimalarial”, “Antiparasital”, “Antiviral”, “Anticancer/tumor”, “Anti-HIV”, “Proteinase inhibitor” and “Surface immobilized” sequences <br>2. Samples with sequence lengths ranging from 5 to 100 amino acids <br>3.CD-HIT is used to perform redundancy removal to a subset of samples with sequence numbers larger than 180</td>
+<td class="x71">The non-AMP sequences came from UniProt. By filtering the samples with the following criteria.<br>1.Did not contain unnatural amino acids<br>2.not in the positive samples<br>3.Between 5 and 100 amino acids in length.<br>In addition, they obtained 109 non-AMP sequences of the same length from the Pfam family.</td>
+ </tr>
+ <tr height="146" style="mso-height-source:userset;height:110pt" id="r5">
+<td height="144" class="x70" style="height:108.5pt;">From DRAMP</td>
+<td class="x71">Downloaded the "Antimicrobial_amps" data from the DRAMP database.In addition,removed petitdes whose length exceeded the length range of the four data sets mentioned above,with unknown amino acids and in negetive samples.</td>
+<td class="x71">To ensure experimental fairness, negative samples were collected from the four data sets described above.<br>1. Samples with repeated occurrences were removed<br>2. The samples appearing in the positive sample set were removed</td>
+ </tr>
+<!--[if supportMisalignedColumns]-->
+ <tr height="0" style="display:none">
+  <td width="189" style="width:141.75pt"></td>
+  <td width="375" style="width:281.25pt"></td>
+  <td width="375" style="width:281.25pt"></td>
+ </tr>
+ <!--[endif]-->
+</tbody></table>
+
 ## ROC图
 （由于国内网络原因，可能出现无法显示的情况，下载后可正常查看）
 ![image](https://github.com/shallFun4Learning/BERT-CNN-AMP/blob/main/roc%E5%9B%BE_04.png)
